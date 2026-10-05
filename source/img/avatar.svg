@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <title>Heraldic crest avatar</title>
+  <defs>
+    <radialGradient id="avBg" cx="0.5" cy="0.38" r="0.78">
+      <stop offset="0" stop-color="#2c5486"/>
+      <stop offset="1" stop-color="#12233a"/>
+    </radialGradient>
+    <path id="shield" d="M32 4 L57 13 C57 33 50 50 32 60 C14 50 7 33 7 13 Z"/>
+    <clipPath id="shieldClip">
+      <use href="#shield" transform="translate(41.2,41.4) scale(3.4)"/>
+    </clipPath>
+  </defs>
+
+  <rect width="300" height="300" fill="url(#avBg)"/>
+
+  <!-- Gold rings -->
+  <circle cx="150" cy="150" r="136" fill="none" stroke="#c9a227" stroke-width="5" opacity="0.85"/>
+  <circle cx="150" cy="150" r="124" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- Shield of the field -->
+  <g clip-path="url(#shieldClip)">
+    <rect width="300" height="300" fill="#1e3a5f"/>
+    <g fill="#c9a227" transform="translate(41.2,41.4) scale(3.4)">
+      <rect x="28" y="16" width="8" height="32" rx="1"/>
+      <rect x="16" y="27" width="32" height="8" rx="1"/>
+      <rect x="22" y="9"  width="20" height="8" rx="1"/>
+      <rect x="22" y="47" width="20" height="8" rx="1"/>
+      <rect x="9"  y="23" width="8" height="16" rx="1"/>
+      <rect x="47" y="23" width="8" height="16" rx="1"/>
+    </g>
+  </g>
+
+  <use href="#shield" transform="translate(41.2,41.4) scale(3.4)"
+       fill="none" stroke="#c9a227" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>

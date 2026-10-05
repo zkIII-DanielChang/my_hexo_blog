@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600"
+     preserveAspectRatio="xMidYMid slice">
+  <title>Heraldic tapestry banner</title>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0"    stop-color="#2a5183"/>
+      <stop offset="0.55" stop-color="#1e3a5f"/>
+      <stop offset="1"    stop-color="#12233a"/>
+    </linearGradient>
+
+    <radialGradient id="vig" cx="0.5" cy="0.42" r="0.78">
+      <stop offset="0.35" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1"    stop-color="#000000" stop-opacity="0.5"/>
+    </radialGradient>
+
+    <!-- Cross potent charge, authored in a 64-unit square -->
+    <g id="charge">
+      <rect x="28" y="16" width="8" height="32" rx="1"/>
+      <rect x="16" y="27" width="32" height="8" rx="1"/>
+      <rect x="22" y="9"  width="20" height="8" rx="1"/>
+      <rect x="22" y="47" width="20" height="8" rx="1"/>
+      <rect x="9"  y="23" width="8" height="16" rx="1"/>
+      <rect x="47" y="23" width="8" height="16" rx="1"/>
+    </g>
+
+    <!-- Semé of charges, offset diagonally like a woven diaper -->
+    <pattern id="diaper" width="160" height="160" patternUnits="userSpaceOnUse">
+      <g fill="#c9a227" opacity="0.075" transform="translate(51.2,51.2) scale(0.9)">
+        <use href="#charge"/>
+      </g>
+      <g fill="#c9a227" opacity="0.075" transform="translate(131.2,131.2) scale(0.9)">
+        <use href="#charge"/>
+      </g>
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="600" fill="url(#field)"/>
+  <rect width="1920" height="600" fill="url(#diaper)"/>
+  <rect width="1920" height="600" fill="url(#vig)"/>
+
+  <!-- Double tressure -->
+  <rect x="30" y="30" width="1860" height="540" fill="none" stroke="#c9a227" stroke-width="3"  opacity="0.5"/>
+  <rect x="44" y="44" width="1832" height="512" fill="none" stroke="#c9a227" stroke-width="1"  opacity="0.28"/>
+</svg>

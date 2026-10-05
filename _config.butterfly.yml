@@ -1,0 +1,169 @@
+# ==============================================================
+# Butterfly 主题配置 —— 纹章骑士 (Heraldic Knight)
+#
+# 本文件覆盖 themes/butterfly/_config.yml 中的同名项。
+# 主题升级时不会被覆盖，请只在此处改配置。
+#
+# 配色
+#   亚麻白  #f0ead6   页面底色
+#   王家蓝  #1e3a5f   主色（盾徽底色）
+#   纹章金  #c9a227   强调（镶边、悬停）
+#   绯红    #8b1a1a   链接
+#   墨蓝黑  #2b2b3a   正文
+# ==============================================================
+
+# --------------------------------------
+# 导航
+# --------------------------------------
+nav:
+  # 导航栏徽记（留空则只显示站点标题）
+  logo:
+  display_title: true
+  display_post_title: true
+  fixed: false
+
+menu:
+  首页: / || fas fa-chess-rook
+  典籍: /archives/ || fas fa-scroll
+  分类: /categories/ || fas fa-folder-tree
+  标签: /tags/ || fas fa-tags
+  关于: /about/ || fas fa-chess-knight
+
+social:
+  fab fa-github: https://github.com/zkIII-DanielChang || GitHub || '#1e3a5f'
+  fas fa-envelope: mailto:daniel-chang@live.cn || Email || '#8b1a1a'
+
+# --------------------------------------
+# 图像
+# --------------------------------------
+favicon: /img/favicon.svg
+
+avatar:
+  # 你的头像（1156×1156 方图，裁为圆形）。换图就替换 source/img/avatar.jpg。
+  img: /img/avatar.jpg
+  effect: false
+
+disable_top_img: false
+
+# 以下横幅均为生成的纹章挂毯
+default_top_img: /img/banner.svg
+index_img: /img/banner.svg
+archive_img: /img/banner.svg
+tag_img: /img/banner.svg
+category_img: /img/banner.svg
+
+# 正文卡片默认封面
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  default_cover:
+    - /img/cover.svg
+
+error_img:
+  flink: /img/friend_404.gif
+  post_page: /img/404.jpg
+
+# --------------------------------------
+# 首页
+# --------------------------------------
+subtitle:
+  enable: true
+  effect: true
+  typed_option:
+  source: false
+  sub:
+    - 以纹章为记，以笔墨为剑
+    - 骑士的荣誉，在于言出必行
+    - 持盾守心，策马向前
+
+index_layout: 3
+
+index_post_content:
+  method: 3
+  length: 300
+
+# --------------------------------------
+# 配色
+# 注意：色值必须用双引号，否则会报错
+# --------------------------------------
+theme_color:
+  enable: true
+  main: "#1e3a5f"
+  paginator: "#c9a227"
+  button_hover: "#c9a227"
+  text_selection: "#c9a227"
+  link_color: "#8b1a1a"
+  meta_color: "#6b6b7a"
+  hr_color: "#c9a227"
+  code_foreground: "#8b1a1a"
+  code_background: "rgba(30, 58, 95, .06)"
+  toc_color: "#c9a227"
+  blockquote_padding_color: "#1e3a5f"
+  blockquote_background_color: "#1e3a5f"
+  scrollbar_color: "#c9a227"
+  meta_theme_color_light: "ffffff"
+  meta_theme_color_dark: "#0d0d0d"
+
+# 直角边角，更接近文书与盾牌，而非圆角卡片
+rounded_corners_ui: false
+
+# 页眉页脚加暗角遮罩，衬托金色纹样
+mask:
+  header: true
+  footer: true
+
+# 默认浅色（亚麻纸）
+display_mode: light
+
+# 标题前缀徽记：皇冠 \f521
+beautify:
+  enable: true
+  field: post
+  title_prefix_icon: '\f521'
+  title_prefix_icon_color: '#c9a227'
+
+hr_icon:
+  enable: true
+  icon: '\f521'
+  icon_top: -10px
+
+# --------------------------------------
+# 字体
+# Cinzel 提供中世纪罗马碑刻体（仅拉丁字形），
+# 中文回退到宋体/思源宋体，整体保持衬线古典感。
+# 走 jsDelivr 而非 Google Fonts，国内可访问。
+# --------------------------------------
+font:
+  global_font_size: 15px
+  code_font_size:
+  font_family: "'Cinzel', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', 'SimSun', Georgia, 'Times New Roman', serif"
+  code_font_family: "Consolas, Menlo, 'Courier New', monospace"
+
+blog_title_font:
+  font_link: https://cdn.jsdelivr.net/npm/@fontsource/cinzel@5/index.css
+  font_family: "'Cinzel', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', Georgia, serif"
+
+# --------------------------------------
+# 目录 / 侧栏
+# --------------------------------------
+toc:
+  post: true
+  page: false
+  number: true
+
+wordcount:
+  enable: false
+
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+# --------------------------------------
+# 注入自定义纹章样式
+# --------------------------------------
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/heraldic.css">
+  bottom:

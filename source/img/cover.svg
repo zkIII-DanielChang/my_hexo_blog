@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520"
+     preserveAspectRatio="xMidYMid slice">
+  <title>Heraldic post cover</title>
+  <defs>
+    <linearGradient id="cField" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0"    stop-color="#2a5183"/>
+      <stop offset="0.6"  stop-color="#1e3a5f"/>
+      <stop offset="1"    stop-color="#101f33"/>
+    </linearGradient>
+
+    <radialGradient id="cVig" cx="0.5" cy="0.45" r="0.7">
+      <stop offset="0.3" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1"   stop-color="#000000" stop-opacity="0.55"/>
+    </radialGradient>
+
+    <path id="cShield" d="M32 4 L57 13 C57 33 50 50 32 60 C14 50 7 33 7 13 Z"/>
+    <clipPath id="cShieldClip">
+      <use href="#cShield" transform="translate(228,120) scale(5.4)"/>
+    </clipPath>
+
+    <g id="cCharge">
+      <rect x="28" y="16" width="8" height="32" rx="1"/>
+      <rect x="16" y="27" width="32" height="8" rx="1"/>
+      <rect x="22" y="9"  width="20" height="8" rx="1"/>
+      <rect x="22" y="47" width="20" height="8" rx="1"/>
+      <rect x="9"  y="23" width="8" height="16" rx="1"/>
+      <rect x="47" y="23" width="8" height="16" rx="1"/>
+    </g>
+
+    <pattern id="cDiaper" width="150" height="150" patternUnits="userSpaceOnUse">
+      <g fill="#c9a227" opacity="0.08" transform="translate(46.2,46.2) scale(0.85)">
+        <use href="#cCharge"/>
+      </g>
+      <g fill="#c9a227" opacity="0.08" transform="translate(121.2,121.2) scale(0.85)">
+        <use href="#cCharge"/>
+      </g>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#cField)"/>
+  <rect width="800" height="520" fill="url(#cDiaper)"/>
+  <rect width="800" height="520" fill="url(#cVig)"/>
+
+  <!-- Central achievement -->
+  <g clip-path="url(#cShieldClip)">
+    <rect width="800" height="520" fill="#1e3a5f"/>
+    <g fill="#c9a227" transform="translate(228,120) scale(5.4)">
+      <rect x="28" y="16" width="8" height="32" rx="1"/>
+      <rect x="16" y="27" width="32" height="8" rx="1"/>
+      <rect x="22" y="9"  width="20" height="8" rx="1"/>
+      <rect x="22" y="47" width="20" height="8" rx="1"/>
+      <rect x="9"  y="23" width="8" height="16" rx="1"/>
+      <rect x="47" y="23" width="8" height="16" rx="1"/>
+    </g>
+  </g>
+  <use href="#cShield" transform="translate(228,120) scale(5.4)"
+       fill="none" stroke="#c9a227" stroke-width="1" stroke-linejoin="round"/>
+
+  <rect x="22" y="22" width="756" height="476" fill="none" stroke="#c9a227" stroke-width="2" opacity="0.45"/>
+  <rect x="34" y="34" width="732" height="452" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.25"/>
+</svg>

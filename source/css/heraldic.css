@@ -1,0 +1,464 @@
+/* ==========================================================================
+   纹章骑士 Heraldic Knight — Butterfly 主题定制样式
+   由 _config.butterfly.yml 的 inject.head 加载，位于主题 css/index.css 之后，
+   因此可以覆盖主题的运行期 CSS 变量。
+   浅色 = 亚麻纸手抄；深色 = 夜蓝石造。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 调色板
+   -------------------------------------------------------------------------- */
+:root {
+  --her-ink:      #2b2b3a;         /* 墨蓝黑 · 正文 */
+  --her-linen:    #f0ead6;         /* 亚麻白 · 页面底 */
+  --her-card:     #fbf8ee;         /* 卡片底 */
+  --her-navy:     #1e3a5f;         /* 王家蓝 · 主色 */
+  --her-navy-dk:  #12233a;
+  --her-gold:     #c9a227;         /* 纹章金 */
+  --her-gold-lt:  #e3c766;
+  --her-crimson:  #8b1a1a;         /* 绯红 · 链接 */
+  --her-rule:     rgba(201, 162, 39, .45);
+
+  /* 覆盖 Butterfly 运行期变量 */
+  --global-bg:              var(--her-linen);
+  --font-color:             var(--her-ink);
+  --card-bg:                var(--her-card);
+  --card-meta:              #6b6b7a;
+  --card-box-shadow:        0 3px 10px 4px rgba(30, 58, 95, .07);
+  --card-hover-box-shadow:  0 6px 18px 6px rgba(30, 58, 95, .13);
+  --hr-border:              var(--her-rule);
+  --hr-before-color:        var(--her-gold);
+  --scrollbar-color:        var(--her-gold);
+  --btn-bg:                 var(--her-navy);
+  --btn-color:              #fdfaf0;
+  --btn-hover-color:        var(--her-gold);
+  --pseudo-hover:           var(--her-gold);
+  --text-bg-hover:          rgba(201, 162, 39, .8);
+  --text-highlight-color:   var(--her-ink);
+  --blockquote-color:       #5a5344;
+  --blockquote-bg:          rgba(30, 58, 95, .06);
+  --toc-link-color:         #6b6b7a;
+  --sidebar-bg:             #f6f1e2;
+  --search-bg:              #f6f1e2;
+  --mark-bg:                rgba(201, 162, 39, .35);
+  --headline-presudo:       var(--her-gold);
+  --default-bg-color:       var(--her-navy);
+}
+
+/* 夜蓝石造：金线在暗底上更亮，正文转暖灰 */
+[data-theme='dark'] {
+  --her-ink:      #cfcabd;
+  --her-linen:    #131a24;
+  --her-card:     #1b2534;
+  --her-navy:     #2c5486;
+  --her-gold:     #d8b13a;
+  --her-gold-lt:  #efd98a;
+  --her-crimson:  #d97070;
+  --her-rule:     rgba(216, 177, 58, .38);
+
+  --card-meta:              #8f8a7d;
+  --card-box-shadow:        0 3px 10px 4px rgba(0, 0, 0, .32);
+  --card-hover-box-shadow:  0 6px 18px 6px rgba(0, 0, 0, .45);
+  --blockquote-color:       #a9a294;
+  --blockquote-bg:          rgba(216, 177, 58, .07);
+  --toc-link-color:         #8f8a7d;
+  --sidebar-bg:             #172030;
+  --search-bg:              #172030;
+  --btn-color:              #131a24;
+}
+
+/* --------------------------------------------------------------------------
+   2. 排版 —— 全站衬线，拉丁字形走 Cinzel
+   -------------------------------------------------------------------------- */
+body {
+  font-family: 'Cinzel', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC',
+               'STSong', 'SimSun', Georgia, 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 正文与代码保持可读性，不受标题字距影响 */
+#article-container,
+#article-container p,
+#aside-content,
+.recent-post-info {
+  letter-spacing: .01em;
+}
+
+#article-container code,
+#article-container pre,
+code, kbd, pre, samp {
+  font-family: Consolas, Menlo, 'Courier New', monospace;
+}
+
+/* 站点标题：金底字距拉开，如碑刻 */
+#blog-info .site-name {
+  font-family: 'Cinzel', 'Noto Serif SC', 'Songti SC', 'SimSun', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
+}
+
+#site-subtitle {
+  font-family: 'Cinzel', 'Noto Serif SC', 'STSong', 'SimSun', Georgia, serif;
+  letter-spacing: .12em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .6);
+}
+
+/* 文章与卡片标题 */
+.post-title,
+#article-container h1,
+#article-container h2,
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6,
+.item-headline {
+  font-family: 'Cinzel', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', Georgia, serif;
+  letter-spacing: .04em;
+}
+
+/* --------------------------------------------------------------------------
+   3. 导航栏
+   -------------------------------------------------------------------------- */
+#nav .menus_item > a {
+  letter-spacing: .08em;
+}
+
+/* 金色下划线，悬停/当前页展开 */
+#nav .menus_item > a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: 2px auto 0;
+  background: linear-gradient(90deg, transparent, var(--her-gold), transparent);
+  transition: width .3s ease;
+}
+
+#nav .menus_item > a:hover::after,
+#nav .menus_item > a.active::after {
+  width: 100%;
+}
+
+/* 次级菜单：金色悬停 + 金线分隔 */
+#nav .menus_item_child {
+  border-top: 2px solid var(--her-gold);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+
+#nav .menus_item_child li:not(:last-child) {
+  border-bottom: 1px solid var(--her-rule);
+}
+
+/* --------------------------------------------------------------------------
+   4. 头像 —— 双圈金环
+   -------------------------------------------------------------------------- */
+#blog-info .site-icon,
+#aside-content .card-info .avatar-img img,
+.avatar-img img {
+  border: 2px solid var(--her-gold);
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, .22),
+              0 4px 14px rgba(0, 0, 0, .3);
+}
+
+/* --------------------------------------------------------------------------
+   5. 卡片 —— 金线镶边，直角
+   -------------------------------------------------------------------------- */
+.recent-post-item,
+#aside-content .card-widget,
+#post,
+#page,
+#archive,
+#tag,
+#category {
+  border: 1px solid var(--her-rule);
+  border-top: 3px solid var(--her-gold);
+  border-radius: 0;
+}
+
+/* 侧栏小标题：金色短尺 */
+#aside-content .item-headline {
+  border-bottom: 1px solid var(--her-rule);
+  padding-bottom: .5em;
+}
+
+#aside-content .item-headline i {
+  color: var(--her-gold);
+}
+
+/* --------------------------------------------------------------------------
+   6. 正文 —— 首字下沉、纹章分隔线、引用、表格
+   -------------------------------------------------------------------------- */
+
+/* 首段首字下沉，绯红大写 */
+#article-container > p:first-of-type::first-letter {
+  float: left;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 3.3em;
+  font-weight: 700;
+  line-height: .84;
+  padding: .06em .14em 0 0;
+  color: var(--her-crimson);
+}
+
+/* 二级标题左侧金色旗标 */
+#article-container h2 {
+  border-left: 4px solid var(--her-gold);
+  padding-left: .55em;
+}
+
+/* 分隔线：金色细线 */
+#article-container hr {
+  background: none;
+  border-top: 1px solid var(--her-rule);
+}
+
+/* 引用块：王家蓝左栏 + 蓝灰底 */
+#article-container blockquote {
+  border-left: 4px solid var(--her-navy);
+  background: var(--blockquote-bg);
+  color: var(--blockquote-color);
+  border-radius: 0;
+}
+
+/* 表格：蓝底金线 */
+#article-container table th {
+  background: var(--her-navy);
+  color: #fdfaf0;
+  border-color: var(--her-navy);
+  letter-spacing: .05em;
+}
+
+#article-container table td {
+  border-color: var(--her-rule);
+}
+
+#article-container table tr:nth-child(even) {
+  background: rgba(201, 162, 39, .07);
+}
+
+/* 行内代码 */
+#article-container code:not([class*='hljs']) {
+  background: rgba(30, 58, 95, .08);
+  color: var(--her-crimson);
+  border: 1px solid var(--her-rule);
+}
+
+/* 代码块外框 */
+#article-container figure.highlight,
+#article-container pre {
+  border: 1px solid var(--her-rule);
+  border-radius: 0;
+}
+
+/* 链接：绯红，悬停镀金 */
+#article-container a {
+  color: var(--her-crimson);
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+#article-container a:hover {
+  color: var(--her-gold);
+  border-bottom-color: var(--her-gold);
+}
+
+/* --------------------------------------------------------------------------
+   7. 分页器
+   -------------------------------------------------------------------------- */
+#pagination .page-number.current,
+#pagination .extend.next,
+#pagination .extend.prev {
+  background: var(--her-navy);
+  color: #fdfaf0;
+  border: 1px solid var(--her-gold);
+  border-radius: 0;
+}
+
+#pagination .page-number:not(.current):hover,
+#pagination .extend:hover {
+  background: var(--her-gold);
+  color: var(--her-navy-dk);
+}
+
+/* --------------------------------------------------------------------------
+   8. 侧栏按钮、页脚、滚动条
+   -------------------------------------------------------------------------- */
+#rightside > div > button,
+#rightside > a > button {
+  background: var(--her-navy);
+  color: var(--her-gold-lt);
+  border: 1px solid var(--her-gold);
+  border-radius: 0;
+}
+
+#rightside > div > button:hover,
+#rightside > a > button:hover {
+  background: var(--her-gold);
+  color: var(--her-navy-dk);
+}
+
+/* 页脚：深蓝底，金线顶边 */
+#footer {
+  background: var(--her-navy-dk);
+  border-top: 2px solid var(--her-gold);
+  color: #cfc7b0;
+}
+
+#footer a {
+  color: var(--her-gold-lt);
+}
+
+#footer a:hover {
+  color: #fff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--her-gold);
+}
+
+/* --------------------------------------------------------------------------
+   9. 顶部横幅 —— 金框衬托
+   -------------------------------------------------------------------------- */
+#page-header {
+  border-bottom: 2px solid var(--her-gold);
+}
+
+#page-header.full_page {
+  border-bottom: none;
+}
+
+/* 首页向下箭头镀金 */
+#page-header #scroll-down .scroll-down-effects,
+#page-header.not-top-img #nav .site-page {
+  color: var(--her-gold-lt);
+}
+
+/* --------------------------------------------------------------------------
+   10. 脚注（由 marked-footnote 生成，Butterfly 不认这些类，需自行配色）
+   -------------------------------------------------------------------------- */
+
+/* 脚注区标题仅供屏幕阅读器。不隐藏的话页面会多出一行 "Footnotes"。
+   选择器权重 (1,1,0) 高于本文件 #article-container h2 的 (1,0,1)，
+   故能盖掉金色旗标样式。 */
+#article-container .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#article-container .footnotes {
+  margin-top: 2.4em;
+  padding-top: 1.2em;
+  border-top: 1px solid var(--her-rule);
+  font-size: .92em;
+  color: var(--blockquote-color);
+}
+
+#article-container .footnotes ol {
+  padding-left: 1.4em;
+}
+
+#article-container .footnotes li {
+  margin-bottom: .5em;
+}
+
+/* 正文中的脚注角标 */
+#article-container sup a[data-footnote-ref] {
+  padding: 0 .18em;
+  font-size: .78em;
+  font-weight: 700;
+  color: var(--her-crimson);
+}
+
+#article-container sup a[data-footnote-ref]:hover {
+  color: var(--her-gold);
+}
+
+/* 返回正文的箭头 */
+#article-container a[data-footnote-backref] {
+  margin-left: .35em;
+  color: var(--her-gold);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   11. 《铁冠诸侯》试玩区块
+   游戏自带深色 + 金色配色（--bg:#14181d / --gold:#d9b36c），与本站纹章金同调，
+   所以外框沿用金线，不必另起一套配色。
+   -------------------------------------------------------------------------- */
+#article-container .tg-play {
+  margin: 1.8em 0;
+  border: 1px solid var(--her-rule);
+  border-top: 3px solid var(--her-gold);
+  background: var(--her-card);
+  overflow: hidden;
+}
+
+#article-container .tg-play-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8em;
+  padding: .55em .9em;
+  border-bottom: 1px solid var(--her-rule);
+  background: rgba(201, 162, 39, .08);
+}
+
+#article-container .tg-play-title {
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--her-navy);
+}
+
+[data-theme='dark'] #article-container .tg-play-title {
+  color: var(--her-gold-lt);
+}
+
+/* 权重 (1,2,1) 高于本文件 #article-container a:hover 的 (1,1,1) */
+#article-container a.tg-play-link {
+  flex: none;
+  padding: .26em .8em;
+  font-size: .88em;
+  color: var(--her-navy);
+  background: rgba(201, 162, 39, .18);
+  border: 1px solid var(--her-gold);
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease;
+}
+
+#article-container a.tg-play-link:hover {
+  background: var(--her-gold);
+  color: var(--her-navy-dk);
+  border-bottom-color: var(--her-gold);
+}
+
+#article-container .tg-play-frame {
+  height: 78vh;
+  min-height: 540px;
+}
+
+#article-container .tg-play iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 手机上把纵向空间尽量让给游戏本体 */
+@media (max-width: 768px) {
+  #article-container .tg-play-frame {
+    height: 72vh;
+    min-height: 440px;
+  }
+
+  #article-container .tg-play-title {
+    font-size: .92em;
+  }
+}
